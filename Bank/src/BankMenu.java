@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class BankMenu {
     private final Scanner scanner = new Scanner(System.in);
     private final ArrayList<Bank> banks = new ArrayList<>();
-
+    //Остерман Кирило
     public void runApp() {
         System.out.println("Welcome to the Bank Management System!");
         addSampleData();
@@ -17,7 +17,7 @@ public class BankMenu {
 
         System.out.println("Exit completed. Thank you!");
     }
-
+    //Д`яков Олексій
     private void addSampleData() {
         Bank bank1 = new Bank("Monobank");
         Bank bank2 = new Bank("PUMB Bank");
@@ -39,7 +39,7 @@ public class BankMenu {
 
         System.out.println("Sample data added.");
     }
-
+    // Іван Єрьомін
     private void showMenu() {
         System.out.println("""
             Please choose an option:
@@ -64,19 +64,21 @@ public class BankMenu {
             default -> System.out.println("Invalid choice. Try again.");
         }
     }
-
+    //Шульгін Назар
     private void addBank() {
         System.out.print("Enter bank name: ");
+        scanner.nextLine();
         String bankName = scanner.nextLine();
         banks.add(new Bank(bankName));
         System.out.println("Bank added: " + bankName);
     }
-
+    //Шпак Максим
     private void addAccount() {
         Bank bank = chooseBank();
         if (bank == null) return;
 
         System.out.print("Enter account holder's name: ");
+        scanner.nextLine();
         String name = scanner.nextLine();
         System.out.print("Enter account ID: ");
         String accountId = scanner.nextLine();
@@ -91,7 +93,7 @@ public class BankMenu {
             System.out.println("Account ID is not unique.");
         }
     }
-
+    //Чабанюк Віолета
     private void viewAccountsInBank() {
         Bank bank = chooseBank();
         if (bank == null) return;
@@ -99,7 +101,7 @@ public class BankMenu {
         System.out.println("Accounts in " + bank.getBankName() + ":");
         bank.getAccounts().forEach(System.out::println);
     }
-
+    //Остерман Кирило
     private void depositToAccount() {
         Bank bank = chooseBank();
         if (bank == null) return;
@@ -114,7 +116,7 @@ public class BankMenu {
         bank.deposit(account, amount);
         System.out.println("Deposit successful. New balance: " + account.getBalance());
     }
-
+    //Зелінський Ярослав, Зелінський Ярослав
     private void withdrawFromAccount() {
         Bank bank = chooseBank();
         if (bank == null) return;
@@ -138,6 +140,7 @@ public class BankMenu {
         if (bank == null) return;
 
         System.out.print("Enter account ID to remove: ");
+        scanner.nextLine();
         String accountId = scanner.nextLine();
 
         if (bank.removeAccount(accountId)) {
